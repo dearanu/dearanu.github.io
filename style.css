@@ -301,3 +301,27 @@ button:active{
   60%{transform:translateX(-5px);} 
   80%{transform:translateX(5px);} 
 }
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .heart,
+  .floating-hearts span,
+  .login-box,
+  .login-box.success,
+  .login-box.shake,
+  button {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .floating-hearts{
+    /* keep decorative content but avoid animating it */
+    pointer-events:none;
+  }
+
+  .floating-hearts span{
+    opacity:0.8 !important;
+    transform:none !important;
+    bottom:0 !important;
+  }
+}
