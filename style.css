@@ -1,0 +1,279 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html, body {
+width:100%;
+overflow-x:hidden;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(135deg,#ffd6e8,#fff5f8);
+position:relative;
+}
+
+/* Background */
+.background{
+position:absolute;
+inset:0;
+background:radial-gradient(circle at top,#ffe9f1,#ffd5e4,#ffc2d6);
+z-index:-3;
+}
+
+/* Big Heart - Centered to prevent shifting the screen layout */
+.heart{
+position:absolute;
+top:50%;
+left:50%;
+width:420px;
+height:420px;
+background:linear-gradient(135deg,#ff4d88,#ff1744);
+transform:translate(-50%, -50%) rotate(-45deg);
+opacity:.18;
+animation:heartbeat 1.3s infinite;
+filter:drop-shadow(0 0 25px rgba(255,0,90,.35));
+z-index:-2;
+}
+
+.heart::before,
+.heart::after{
+content:"";
+position:absolute;
+width:420px;
+height:420px;
+background:inherit;
+border-radius:50%;
+}
+
+.heart::before{
+top:-210px;
+left:0;
+}
+
+.heart::after{
+left:210px;
+top:0;
+}
+
+/* Heart Beat - Updated to preserve center positioning */
+@keyframes heartbeat{
+0%,100%{ transform:translate(-50%, -50%) rotate(-45deg) scale(1); }
+15%{ transform:translate(-50%, -50%) rotate(-45deg) scale(1.12); }
+30%{ transform:translate(-50%, -50%) rotate(-45deg) scale(1); }
+45%{ transform:translate(-50%, -50%) rotate(-45deg) scale(1.18); }
+60%{ transform:translate(-50%, -50%) rotate(-45deg) scale(1); }
+}
+
+/* Floating Hearts */
+.floating-hearts{
+position:absolute;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+}
+
+.floating-hearts span{
+position:absolute;
+bottom:-100px;
+font-size:28px;
+animation:float 10s linear infinite;
+opacity:.8;
+}
+
+.floating-hearts span:nth-child(1){left:8%;animation-delay:0s;}
+.floating-hearts span:nth-child(2){left:24%;animation-delay:2s;}
+.floating-hearts span:nth-child(3){left:42%;animation-delay:4s;}
+.floating-hearts span:nth-child(4){left:60%;animation-delay:1s;}
+.floating-hearts span:nth-child(5){left:78%;animation-delay:3s;}
+.floating-hearts span:nth-child(6){left:92%;animation-delay:5s;}
+
+@keyframes float{
+0%{ transform:translateY(0) scale(.5); opacity:0; }
+20%{ opacity:1; }
+100%{ transform:translateY(-120vh) rotate(360deg) scale(1.5); opacity:0; }
+}
+
+/* Container */
+.container{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+/* Login Card with Image Background */
+.login-box{
+width:100%;
+max-width:380px;
+/* Decreased opacity layer to 0.35 to make the image highly visible */
+background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), 
+            url('login.jpg') no-repeat center center;
+background-size: cover;
+backdrop-filter: blur(8px);
+padding:35px 25px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+text-align:center;
+animation: card 1.3s infinite ease-in-out;
+}
+
+@keyframes card{
+0%,100%{ transform:translateY(0); }
+15%{ transform:translateY(-3px); }
+45%{ transform:translateY(-6px); }
+}
+
+/* Heading - Stronger colors to sit clearly above the image background */
+.login-box h1{
+font-size:42px;
+color:#ff2d6f;
+margin-bottom:10px;
+font-weight:700;
+text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+}
+
+.login-box p{
+color:#333;
+font-size:18px;
+margin-bottom:25px;
+font-weight: 500;
+}
+
+/* Input boxes styled explicitly solid white for absolute text readability */
+/* Semi-Transparent Input Boxes */
+.input-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.35) !important; /* Semi-transparent background */
+    backdrop-filter: blur();                       /* Glass blur effect */
+    border: 1.5px solid rgba(255, 255, 255, 0.6);     /* Subtle light border */
+    border-radius: 15px;
+    margin-bottom: 18px;
+    padding: 0 15px;
+    transition: .35s ease;
+}
+
+.input-box:focus-within {
+    background: rgba(255, 255, 255, 0.65) !important; /* Slightly clearer when typing */
+    border-color: #ff2d6f;
+    box-shadow: 0 0 15px rgba(255, 45, 111, 0.3);
+}
+
+.input-box i {
+    color: #ff2d6f;
+    font-size: 18px;
+}
+
+.input-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 12px;
+    font-size: 17px;
+    background: transparent !important;
+    color: #222; /* Dark, readable text */
+    font-weight: 500;
+}
+
+/* Make placeholder text clear and visible over background image */
+.input-box input::placeholder {
+    color: #555;
+    opacity: 0.9;
+}
+
+/* Password Eye */
+.togglePassword{
+cursor:pointer;
+}
+
+/* Button */
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+background:linear-gradient(135deg,#ff2d6f,#ff5d8f);
+color:#fff;
+font-size:20px;
+font-weight:600;
+cursor:pointer;
+transition:.35s ease;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(255,45,111,.35);
+}
+
+button:active{
+transform:scale(.97);
+}
+
+/* Message banner styling */
+#message{
+margin-top:15px;
+font-weight:600;
+min-height:24px;
+opacity:0;
+transition:.4s ease;
+text-shadow: 0 1px 5px rgba(255,255,255,0.9);
+}
+
+/* Mobile responsive alignment overrides */
+@media(max-width:480px){
+.login-box{
+padding:30px 20px;
+}
+.login-box h1{
+font-size:34px;
+}
+.heart{
+width:300px;
+height:300px;
+}
+.heart::before,
+.heart::after{
+width:300px;
+height:300px;
+}
+.heart::before{ top:-150px; }
+.heart::after{ left:150px; }
+}
+
+/* Stop floating behavior when validation animations run */
+.login-box.shake,
+.login-box.success {
+    animation: none !important; 
+}
+
+/* Success scale action */
+.login-box.success{
+    animation:success .8s ease forwards;
+}
+
+@keyframes success{
+    0%{transform:scale(1);}
+    40%{transform:scale(1.04);}
+    100%{transform:scale(1);}
+}
+
+/* Fail shake action */
+.login-box.shake{
+    animation:shake .45s ease-in-out;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-8px);}
+    40%{transform:translateX(8px);}
+    60%{transform:translateX(-5px);}
+    80%{transform:translateX(5px);}
+}
