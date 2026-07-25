@@ -115,7 +115,7 @@ width:100%;
 max-width:380px;
 /* Decreased opacity layer to 0.35 to make the image highly visible */
 background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), 
-            url('login.jpg') no-repeat center center;
+            url('login.webp') no-repeat center center;
 background-size: cover;
 backdrop-filter: blur(8px);
 padding:35px 25px;
