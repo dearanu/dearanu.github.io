@@ -8,7 +8,7 @@ const ageCounter = document.getElementById("ageCounter");
 
 // 🛠️ SET YOUR SPECIAL DATES HERE:
 const birthDate = new Date("2000-07-26T00:00:00"); // 🎂 Her Birth Date
-const loveDate = new Date("2025-01-01T00:00:00");  // ❤️ Anniversary Date
+const loveDate = new Date("2025-08-22T00:00:00");  // ❤️ Anniversary Date
 
 // ================================================
 // ⏳ Special Milestones & Counters
